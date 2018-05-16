@@ -11,7 +11,9 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
-                echo "$ORG"
+		container('go') {
+                    echo "$ORG"
+		}
             }
         }
     }
