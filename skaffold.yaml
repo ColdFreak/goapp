@@ -6,6 +6,9 @@ build:
       template: "wzj8698/goapp:0.2"
   artifacts:
   - imageName: wzj8698/goapp
+    workspace: .
+    docker: {}
+  local: {}
 deploy:
   kubectl:
     manifests:
