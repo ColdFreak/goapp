@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
-                echo '$ORG'
+                echo "$ORG"
             }
         }
     }
