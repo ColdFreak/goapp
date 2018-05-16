@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label: "jenkins-go"
+        label "jenkins-go"
     }
     environment {
       ORG               = 'REPLACE_ME_ORG'
