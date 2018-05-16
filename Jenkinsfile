@@ -14,7 +14,7 @@ pipeline {
 		container('go') {
                     echo "$APP_NAME"
 		    sh "jx --version"
-		    sh "skaffold run"
+		    sh "skaffold run -t wzj8698/goapp"
 		}
             }
         }
