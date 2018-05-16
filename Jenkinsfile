@@ -10,11 +10,15 @@ pipeline {
     }
     stages {
         stage('Example Build') {
+	    environment { 
+                DEBUG_FLAGS = '-g'
+            }
             steps {
 		container('go') {
                     echo "$APP_NAME"
 		    sh "jx --version"
-		    sh "skaffold run -f skaffold.yaml"
+#		    sh "skaffold run -f skaffold.yaml"
+		    sh 'printenv'
 		}
             }
         }
