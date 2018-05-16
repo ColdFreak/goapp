@@ -14,7 +14,7 @@ pipeline {
 		container('go') {
                     echo "$APP_NAME"
 		    sh "jx --version"
-		    sh "skaffold run"
+		    sh "export VERSION="0.1" && skaffold run -f skaffold.yaml"
 		}
             }
         }

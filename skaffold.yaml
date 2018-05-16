@@ -1,6 +1,9 @@
 apiVersion: skaffold/v1alpha2
 kind: Config
 build:
+  tagPolicy:
+    envTemplate:
+      template: "wzj8698/goapp:{{.VERSION}}"
   artifacts:
   - imageName: wzj8698/goapp
 deploy:
