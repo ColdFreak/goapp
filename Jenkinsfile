@@ -12,5 +12,10 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+	    mail to: so@idcf.jp, subject: 'The Pipeline finished :('
+        }
+    }
 }
 
