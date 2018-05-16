@@ -1,5 +1,7 @@
 pipeline {
-    agent  any
+    agent {
+        label: "jenkins-go"
+    }
     environment {
       ORG               = 'REPLACE_ME_ORG'
       APP_NAME          = 'REPLACE_ME_APP_NAME'
@@ -19,8 +21,18 @@ pipeline {
     }
     post {
         always { 
-	    echo "I finished"
+	    echo "Always."
         }
+        success {
+            echo 'I succeeeded!'
+        }
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
+
     }
 }
 
