@@ -3,11 +3,7 @@ kind: Config
 build:
   artifacts:
   - imageName: wzj8698/goapp
-    workspace: .
-    docker: {}
-  local: {}
 deploy:
   kubectl:
     manifests:
       - k8s-*
-        
