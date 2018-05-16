@@ -12,7 +12,8 @@ pipeline {
         stage('Example Build') {
             steps {
 		container('go') {
-                    echo "$ORG"
+                    echo "$APP_NAME"
+		    sh "jx --version"
 		}
             }
         }
