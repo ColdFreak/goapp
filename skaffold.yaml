@@ -10,6 +10,13 @@ build:
     docker: {}
   local: {}
 deploy:
-  kubectl:
-    manifests:
-      - k8s-*
+#  kubectl:
+#    manifests:
+#      - k8s-*
+  helm:
+    release:
+    - name: goapp
+      chartPath: goapp
+      namespace: skaffold
+      values:
+        image: goapp

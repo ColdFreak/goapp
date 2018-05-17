@@ -14,9 +14,19 @@ pipeline {
         }
     }
     post {
-	always {
-	    echo "always!"
-	}
+        always {
+            echo "Always."
+        }
+        success {
+            echo 'I succeeeded!'
+        }
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
+
     }
 }
 
