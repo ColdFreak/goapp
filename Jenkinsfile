@@ -1,20 +1,14 @@
 pipeline {
     agent any
-    parameters {
-        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
-        string(name: 'Wang', defaultValue: 'Hi Wang', description: 'How should I greet the world?')
-    }
     stages {
         stage('Example') {
             steps {
-                echo "${params.Greeting} World!"
-                echo "${params.Wang}, how are you!"
+		container("go") {
+		    sh 'curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl'
+  		    sh 'chmod +x ./kubectl && mv kubectl /usr/local/sbin'
+		    sh 'kubectl version'
+		}
             }
-        }
-    }
-    post {
-        always {
-	    mail to: so@idcf.jp, subject: 'The Pipeline finished :('
         }
     }
 }
