@@ -13,8 +13,11 @@ pipeline:
 services:
   database:
     image: mysql
+    # http://docs.drone.io/environment/
     commands:
       - export MYSQL_ROOT_PASSWORD="123"
 
-
+notify:
+    image: plugins/slack
+    channel: tmp-slack-api-test
 
