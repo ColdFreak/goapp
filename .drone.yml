@@ -1,3 +1,4 @@
+# http://docs.drone.io/cloning/
 clone:
   git:
     image: plugins/git
@@ -8,6 +9,10 @@ pipeline:
     commands:
       - echo "hi"
       - go build
+
+services:
+  database:
+    image: mysql
 
 
 
