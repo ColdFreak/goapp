@@ -1,5 +1,9 @@
+clone:
+  git:
+    image: plugins/git
+    depth: 1
 pipeline:
-  backend:
+  build:
     image: golang
     commands:
       - go build
