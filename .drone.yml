@@ -6,6 +6,7 @@ pipeline:
   build:
     image: golang
     commands:
+      - echo "hi"
       - go build
 
 
