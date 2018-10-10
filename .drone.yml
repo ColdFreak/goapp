@@ -1,3 +1,7 @@
+workspace:
+  base: /go
+  path: src/github.com/ColdFreak/goapp
+
 # http://docs.drone.io/cloning/
 clone:
   git:
@@ -12,6 +16,7 @@ pipeline:
 
   notify:
     image: plugins/slack
+    # appsの中からincoming-webhookを選んで、チャンネルを選んでリンクが出てくる
     webhook: https://hooks.slack.com/services/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
     channel: tmp-slack-api-test
 
