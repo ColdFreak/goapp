@@ -10,6 +10,10 @@ pipeline:
       - echo "hi"
       - go build
 
+  notify:
+    image: plugins/slack
+    channel: tmp-slack-api-test
+
 services:
   database:
     image: mysql
@@ -17,7 +21,4 @@ services:
     commands:
       - export MYSQL_ROOT_PASSWORD="123"
 
-notify:
-    image: plugins/slack
-    channel: tmp-slack-api-test
 
