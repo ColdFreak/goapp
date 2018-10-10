@@ -19,6 +19,13 @@ pipeline:
     # appsの中からincoming-webhookを選んで、チャンネルを選んでリンクが出てくる
     webhook: https://hooks.slack.com/services/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
     channel: tmp-slack-api-test
+    username: drone
+    template: >
+      *{{ build.status }}* <{{ build.link }}|{{ repo.owner }}/{{ repo.name }}#{{ build.commit }}> ({{ build.ref }}) by {{ build.author }}
+    when:
+      event: [ push, pull_request ]
+      status: [ success, failure ]
+
 
 services:
   database:
