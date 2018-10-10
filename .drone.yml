@@ -11,10 +11,10 @@ pipeline:
       - go build
 
 services:
-  environment:
-    - MYSQL_ROOT_PASSWORD="123"
   database:
     image: mysql
+    commands:
+      - export MYSQL_ROOT_PASSWORD="123"
 
 
 
