@@ -12,7 +12,7 @@ pipeline:
     image: golang
     commands:
       - echo "hi"
-      - sleep 50
+      - sleep 300
       - go build
 
   # ここのnotifyという文字列決まっていないからなんでもいい
