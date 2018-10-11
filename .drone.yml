@@ -12,7 +12,7 @@ pipeline:
     image: golang
     commands:
       - echo "hi"
-      - echo ${mysecret}
+      - echo "${mysecret}"
       # - sleep 300
       - go build
 
