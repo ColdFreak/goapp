@@ -13,7 +13,6 @@ pipeline:
     commands:
       - echo "hi"
       - go build
-branches: [develop, feature/*]
 
   # ここのnotifyという文字列決まっていないからなんでもいい
   notify:
@@ -29,6 +28,7 @@ branches: [develop, feature/*]
       event: [ push, pull_request ]
       status: [ success, failure ]
 
+branches: [develop, feature/*]
 
 services:
   database:
