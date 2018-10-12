@@ -23,9 +23,8 @@ pipeline:
     release: "goapp"
     wait: true
     recreate_pods: true
-    service_account: tiller
     secrets: [api_server, kubernetes_token]
-    values_files: ["helm/goapp/values.yml"]
+    values_files: ["values.yaml"]
     namespace: drone
     when:
       event: push
