@@ -20,7 +20,7 @@ pipeline:
     chart: ./helm/goapp
     release: ${DRONE_BRANCH}
     namespace: drone
-    values_files: ["values.yaml"]
+    values_files: ["./helm/goapp/values.yaml"]
     debug: true
     api_server: https://10.32.0.72:6443
     prefix: dev
