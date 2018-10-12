@@ -16,6 +16,7 @@ pipeline:
 
   deploy:
     image: quay.io/honestbee/drone-kubernetes
+    kubernetes_server: https://10.32.0.72:6443
     deployment: my-deployment
     repo: ColdFreak/goapp
     container: my-container
