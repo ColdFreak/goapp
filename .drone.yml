@@ -15,15 +15,10 @@ pipeline:
       - ls -al
 
   deploy:
-    image: quay.io/honestbee/drone-kubernetes
-    kubernetes_server: https://10.32.0.72:6443
-    deployment: my-deployment
-    repo: ColdFreak/goapp
-    container: my-container
-    tag:
-      - 0.2
-
-  # helm_deploy_staging:
+    image: vallard/drone-kube
+    server: https://10.32.0.72:6443
+    namespace: drone
+    template: k8s-deploy.yaml
   #   image: quay.io/ipedrazas/drone-helm
   #   skip_tls_verify: true
   #   chart: ./helm/goapp
@@ -54,11 +49,11 @@ pipeline:
 
 branches: [develop, feature/*]
 
-services:
-  database:
-    image: mysql
-    # http://docs.drone.io/environment/
-    commands:
-      - export MYSQL_ROOT_PASSWORD="123"
+# services:
+#   database:
+#     image: mysql
+#     # http://docs.drone.io/environment/
+#     commands:
+#       - export MYSQL_ROOT_PASSWORD="123"
 
 
