@@ -18,6 +18,19 @@ pipeline:
       # - sleep 300
       - go build
 
+  helm_deploy_staging:
+    image: quay.io/ipedrazas/drone-helm
+    skip_tls_verify: true
+    chart: ./helm/goapp
+    release: "goapp"
+    wait: true
+    recreate_pods: true
+    secrets: [api_server, kubernetes_token]
+    values_files: ["values.yaml"]
+    namespace: drone
+    when:
+      event: push
+      branch: develop
   # ここのnotifyという文字列決まっていないからなんでもいい
   notify:
     image: plugins/slack
