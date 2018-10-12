@@ -12,6 +12,8 @@ pipeline:
     image: golang
     commands:
       - echo "hi"
+      - ls -al
+      - ls -al ~/.kube
       - echo "${mysecret}"
       # - sleep 300
       - go build
