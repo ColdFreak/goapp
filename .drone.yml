@@ -13,10 +13,8 @@ pipeline:
     commands:
       - echo "hi"
       - ls -al
-      - pwd
-      - echo "${mysecret}"
-      # - sleep 300
-      - go build
+      - kubectl cluster-info
+      # - go build
 
   helm_deploy_staging:
     image: quay.io/ipedrazas/drone-helm
