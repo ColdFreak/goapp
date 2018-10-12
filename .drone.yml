@@ -23,6 +23,7 @@ pipeline:
     values_files: ["values.yaml"]
     debug: true
     api_server: 10.32.0.72:6443
+    prefix: dev
     # recreate_pods: true
     # secrets: [api_server, kubernetes_token]
     # wait: true
