@@ -31,10 +31,12 @@ spec:
             httpGet:
               path: /
               port: http
+            periodSeconds: 20
           readinessProbe:
             httpGet:
               path: /
               port: http
+            periodSeconds: 20
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
