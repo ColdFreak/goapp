@@ -13,7 +13,7 @@ pipeline:
     commands:
       - echo "hi"
       - ls -al
-      - ls -al ~/.kube
+      - pwd
       - echo "${mysecret}"
       # - sleep 300
       - go build
