@@ -22,10 +22,11 @@ pipeline:
     namespace: drone
     values_files: ["./helm/goapp/values.yaml"]
     debug: true
-    # api_server: https://10.32.0.72:6443
     prefix: dev
-    # recreate_pods: true
     secrets: [api_server, kubernetes_token]
+    values: ingress.hosts=develop-branch-goapp.so.opensdev.pro
+    # api_server: https://10.32.0.72:6443
+    # recreate_pods: true
     # wait: true
 
 
