@@ -12,7 +12,8 @@ pipeline:
     image: golang
     commands:
       - echo "hi"
-      # - ls -al
+      - ls -al
+      - sleep 30
 
   helm_deploy:
     image: quay.io/ipedrazas/drone-helm
