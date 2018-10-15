@@ -22,7 +22,7 @@ pipeline:
     namespace: drone
     values_files: ["./helm/goapp/values.yaml"]
     debug: true
-    api_server: https://10.32.0.72:6443
+    # api_server: https://10.32.0.72:6443
     prefix: dev
     # recreate_pods: true
     secrets: [api_server, kubernetes_token]
