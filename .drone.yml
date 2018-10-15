@@ -12,7 +12,7 @@ pipeline:
     image: golang
     commands:
       - echo "hi"
-      - ls -al
+      # - ls -al
 
   helm_deploy:
     image: quay.io/ipedrazas/drone-helm
