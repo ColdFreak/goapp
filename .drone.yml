@@ -24,7 +24,7 @@ pipeline:
     debug: true
     prefix: dev
     secrets: [api_server, kubernetes_token]
-    values: ingress.hosts=[develop-branch-goapp.so.opensdev.pro]
+    values: ingress.hosts={develop-branch-goapp.so.opensdev.pro}
     # api_server: https://10.32.0.72:6443
     # recreate_pods: true
     # wait: true

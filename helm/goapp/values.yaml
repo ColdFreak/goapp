@@ -24,8 +24,8 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
-  hosts: {}
-    # - goapp.so.opensdev.pro
+  hosts:
+    - goapp.so.opensdev.pro
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
