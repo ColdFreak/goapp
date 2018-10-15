@@ -13,7 +13,7 @@ pipeline:
     commands:
       - echo "hi"
       - ls -al
-      - sleep 30
+      - sleep 50
 
   helm_deploy:
     image: quay.io/ipedrazas/drone-helm
