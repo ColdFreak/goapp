@@ -44,7 +44,7 @@ pipeline:
       event: [ push, pull_request ]
       status: [ success, failure ]
 
-branches: [develop, feature/*]
+branches: [develop, feature-*]
 
 # services:
 #   database:
