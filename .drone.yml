@@ -32,11 +32,9 @@ pipeline:
   deploy:
     image: quay.io/honestbee/drone-kubernetes
     namespace: drone
-    kubernetes_server: ${KUBERNETES_SERVER}
-    kubernetes_token: ${KUBERNETES_TOKEN}
-    kubernetes_cert: ${KUBERNETES_CERT}
+    kubernetes_server: https://10.32.0.72:6443
     deployment: ex-goapp
-    repo: wzj8698/goapp
+    repo: ColdFreak/goapp
     container: goapp
     tag: 0.2
   # ここのnotifyという文字列決まっていないからなんでもいい
