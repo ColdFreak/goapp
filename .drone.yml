@@ -32,6 +32,7 @@ pipeline:
   deploy:
     image: quay.io/honestbee/drone-kubernetes
     namespace: drone
+    kubernetes_server: https://10.32.0.72:6443
     deployment: ex-goapp
     repo: wzj8698/goapp
     container: goapp
