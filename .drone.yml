@@ -12,7 +12,7 @@ pipeline:
     image: golang
     commands:
       - echo "hi"
-      - kubectl cluster-info
+      # - kubectl cluster-info
       # - go build
 
   # helm_deploy:
