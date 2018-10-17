@@ -34,6 +34,7 @@ pipeline:
     namespace: drone
     kubernetes_server: https://10.32.0.72:6443
     deployment: ex-goapp
+    secrets: [kubernetes_server, kubernetes_token, kubernetes_cert]
     repo: ColdFreak/goapp
     container: goapp
     tag: 0.2
