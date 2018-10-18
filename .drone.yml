@@ -30,7 +30,8 @@ pipeline:
   #     branch: develop
 
   deploy:
-    image: quay.io/honestbee/drone-kubernetes
+    # image: quay.io/honestbee/drone-kubernetes
+    image: wzj8698/drone-kubernetes:latest
     namespace: drone
     deployment: goapp
     secrets: [kubernetes_server, kubernetes_token, kubernetes_cert]
