@@ -24,7 +24,7 @@ pipeline:
     wait: true
     recreate_pods: true
     secrets: [staging_api_server, staging_kubernetes_token]
-    values_files: ["./helm/gooapp/values.yaml"]
+    values_files: ["./helm/goapp/values.yaml"]
     prefix: STAGING
     namespace: drone
     when:
