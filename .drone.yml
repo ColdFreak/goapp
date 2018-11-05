@@ -24,7 +24,7 @@ pipeline:
     recreate_pods: true
     secrets: [api_server, kubernetes_token]
     values_files: ["values.yaml"]
-    prefix: stg11
+    prefix: STAGING
     namespace: drone
     when:
       event: push
@@ -57,11 +57,11 @@ pipeline:
 
 branches: [develop, feature/*]
 
-services:
-  database:
-    image: mysql
-    # http://docs.drone.io/environment/
-    commands:
-      - export MYSQL_ROOT_PASSWORD="123"
+# services:
+#   database:
+#     image: mysql
+#     # http://docs.drone.io/environment/
+#     commands:
+#       - export MYSQL_ROOT_PASSWORD="123"
 
 
