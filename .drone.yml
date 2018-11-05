@@ -19,11 +19,12 @@ pipeline:
     image: quay.io/ipedrazas/drone-helm
     skip_tls_verify: true
     chart: ./helm/goapp
-    release: "${DRONE_BRANCH}-25-goapp"
+    release: "${DRONE_BRANCH}-goapp"
     wait: true
     recreate_pods: true
     secrets: [api_server, kubernetes_token]
     values_files: ["values.yaml"]
+    prefix: stg11
     namespace: drone
     when:
       event: push
