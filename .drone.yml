@@ -18,8 +18,7 @@ pipeline:
   helm_deploy:
     image: quay.io/ipedrazas/drone-helm
     skip_tls_verify: true
-    kube-config: /root/.kube/config
-    api_server: https://10.32.0.72:6443 
+    api_server: https://10.32.0.72:6443
     chart: ./helm/goapp
     release: "${DRONE_BRANCH}-goapp"
     wait: true
