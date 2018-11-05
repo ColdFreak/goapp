@@ -26,6 +26,7 @@ pipeline:
     recreate_pods: true
     secrets: [staging_api_server, staging_kubernetes_token]
     values_files: ["./helm/goapp/values.yaml"]
+    values: ingress.hosts={${DRONE_BRANCH}-goapp.so.opensdev.pro}  
     prefix: STAGING
     namespace: "${DRONE_BRANCH}"
     when:
