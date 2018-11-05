@@ -18,7 +18,7 @@ pipeline:
   helm_deploy:
     image: quay.io/ipedrazas/drone-helm
     skip_tls_verify: true
-    api_server: https://10.32.0.72:6443
+    # api_server: https://10.32.0.72:6443
     chart: ./helm/goapp
     # release: "${DRONE_BRANCH}goapp"
     release: "goapp"
@@ -27,7 +27,7 @@ pipeline:
     secrets: [staging_api_server, staging_kubernetes_token]
     values_files: ["./helm/goapp/values.yaml"]
     prefix: STAGING
-    namespace: drone
+    namespace: "${DRONE_BRANCH"
     when:
       event: push
       branch: develop
