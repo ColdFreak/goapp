@@ -23,7 +23,7 @@ pipeline:
     release: "${DRONE_BRANCH}-goapp"
     wait: true
     recreate_pods: true
-    secrets: [api_server, kubernetes_token]
+    secrets: [staging_api_server, staging_kubernetes_token]
     values_files: ["values.yaml"]
     prefix: STAGING
     namespace: drone
