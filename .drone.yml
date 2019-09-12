@@ -12,8 +12,38 @@ pipeline:
     image: golang
     commands:
       - echo "hi"
-      - go build
+      # - kubectl cluster-info
+      # - go build
 
+  helm_deploy:
+    image: quay.io/ipedrazas/drone-helm
+    skip_tls_verify: true
+    # api_server: https://10.32.0.72:6443
+    chart: ./helm/goapp
+    release: "${DRONE_BRANCH}-goapp"
+    # release: "goapp"
+    wait: true
+    recreate_pods: true
+    secrets: [staging_api_server, staging_kubernetes_token]
+    values_files: ["./helm/goapp/values.yaml"]
+    values: ingress.hosts={${DRONE_BRANCH}-goapp.so.opensdev.pro}  
+    prefix: STAGING
+    namespace: "${DRONE_BRANCH}"
+    when:
+      event: push
+      branch: develop
+
+  # deploy:
+  #   # image: quay.io/honestbee/drone-kubernetes
+  #   image: wzj8698/drone-kubernetes:0.1
+  #   namespace: drone
+  #   kubernetes_user: drone-drone
+  #   deployment: goapp
+  #   # secrets: [kubernetes_server, kubernetes_token, kubernetes_cert]
+  #   secrets: [kubernetes_server, kubernetes_cert]
+  #   repo: ColdFreak/goapp
+  #   container: goapp
+  #   # tag: 0.2
   # ここのnotifyという文字列決まっていないからなんでもいい
   notify:
     image: plugins/slack
@@ -30,11 +60,11 @@ pipeline:
 
 branches: [develop, feature/*]
 
-services:
-  database:
-    image: mysql
-    # http://docs.drone.io/environment/
-    commands:
-      - export MYSQL_ROOT_PASSWORD="123"
+# services:
+#   database:
+#     image: mysql
+#     # http://docs.drone.io/environment/
+#     commands:
+#       - export MYSQL_ROOT_PASSWORD="123"
 
 
